@@ -308,6 +308,7 @@ def start():
     global motor
     global image
     global Width, Height
+    global img
     cam_record = False
 
     rospy.init_node('auto_drive')
@@ -449,5 +450,3 @@ def start():
 
 if __name__ == '__main__':
     start()
-
-
