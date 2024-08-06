@@ -209,9 +209,6 @@ def stop(all_lines, flag, line_count, stop_time):
         stop_time = time.time() + 10.5
         print("Flag up for the second time, stop time: ", stop_time)
     return line_count, flag, stop_time
-
-    return line_count, flag, stop_time
-
 # show image and return lpos, rpos
 def process_image(frame):
     global Width
