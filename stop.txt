@@ -195,19 +195,20 @@ def get_line_pos(img, lines, left=False, right=False):
 def stop(all_lines, flag, line_count, stop_time):
     line_len = all_lines
     print("all_lilnes", line_len)
-#출발 후 1바퀴 돌고 -> 1번째 바퀴 완주 전 2번째에 바퀴 인식하고 정지
-    if(line_count == 1) and (line_len > 30):
-        flag = 0
-        line_count = 2
-        return line_count, flag, stop_time
 
-    if(line_len > 30): #출발 후 1바퀴 돌고
+    if(line_count == 0) and (line_len > 30):
         flag = 1
         line_count = 1
-        print("flag up")
-        print("flag up")
         stop_time = time.time() + 10.5
-        print("stop_time: ", stop_time, "  time: ", time.time())
+        print("Flag up for first time, stop time: ", stop_time)
+
+    elif line_count == 1 and line_len > 30:
+        #두 번째 바퀴를 돌고 멈추는 조건
+        flag = 0
+        line_count = 2
+        stop_time = time.time() + 10.5
+        print("Flag up for the second time, stop time: ", stop_time)
+    return line_count, flag, stop_time
 
     return line_count, flag, stop_time
 
@@ -495,3 +496,4 @@ def start():
 
 if __name__ == '__main__':
     start()
+
